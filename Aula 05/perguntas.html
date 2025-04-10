@@ -1,13 +1,12 @@
 <div class="logo">
     <img src="https://i.postimg.cc/GpCxYmvc/title.png" alt="Logo da Imersão Dev" />
-    <script src="quiz.js"></script>
     <link rel="stylesheet" href="jogo.css">
   </div>
 
   <div class="titulo">
     <h2>Vamos testar seu conhecimento?</h2>
-</div><body>
-
+  </div>
+<body>
   <div class="conteudo-jogo">
     <section class="questionario">
       <div class="conteudo">
@@ -18,8 +17,15 @@
 
       <div class="fim">
         <span></span>
+        <div class="resultado">
+          <span class="resultado-texto"></span>
+          <span class="resultado-pontuacao"></span>
+          <span class="resultado-porcentagem"></span>
+        <button onclick="reiniciarJogo()">Reiniciar</button>
+      </div>
        
       </div>
     </section>
   </div>
+  <script src="quiz.js"></script>
 </body>
