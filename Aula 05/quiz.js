@@ -8,7 +8,8 @@ function shuffle(array) {
 }
 
 // PARTE 1: Lista de perguntas e respostas
-let perguntas = [
+let perguntas = [];
+let todasPerguntas = [
   {
     "pergunta": "Quem foi a primeira pessoa a viajar no Espaço?",
     "respostas": [
@@ -122,6 +123,7 @@ const botaoReiniciar = document.querySelector(".reiniciar"); // Botão de reinic
 // PARTE 3: Variáveis para controle do jogo
 let indiceAtual = 0; // Índice da pergunta atual
 let acertos = 0;     // Contador de acertos
+let shufledRespostas = []; // Respostas embaralhadas
 
 // PARTE 4: Função para carregar uma nova pergunta
 function carregarPergunta() {
@@ -132,8 +134,9 @@ function carregarPergunta() {
   respostasElemento.innerHTML = ""; // Limpa as respostas anteriores
 
   // Percorre todas as respostas da pergunta atual
-  for (let i = 0; i < perguntaAtual.respostas.length; i++) {
-    const resposta = perguntaAtual.respostas[i];
+  shufledRespostas = shuffle(perguntaAtual.respostas); // Embaralha as respostas
+  for (let i = 0; i < shufledRespostas.length; i++) {
+    const resposta = shufledRespostas[i];
     // Cria um novo botão para cada resposta
     const botao = document.createElement("button");
     botao.classList.add("botao-resposta");
@@ -172,9 +175,8 @@ function reiniciarJogo() {
   // Reinicia os valores de controle
   indiceAtual = 0;
   acertos = 0;
-  
-  // Embaralha as perguntas para uma nova ordem aleatória
-  perguntas = shuffle(perguntas);
+
+  perguntas = shuffle(todasPerguntas).slice(0, 4); // Seleciona 4 perguntas aleatórias
   
   // Restaura a tela de perguntas
   conteudo.style.display = "block";
@@ -191,7 +193,7 @@ if (botaoReiniciar) {
 
 // PARTE 7: Iniciando o jogo pela primeira vez
 // Embaralha as perguntas inicialmente
-perguntas = shuffle(perguntas);
+perguntas = shuffle(todasPerguntas).slice(0, 4);
 carregarPergunta();
 
     

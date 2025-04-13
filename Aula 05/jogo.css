@@ -58,6 +58,7 @@ body {
   /* Estilo da pergunta */
   .pergunta {
     font-weight: 600;
+    font-size: 1.5em;
     color: white;
   }
   
@@ -98,12 +99,26 @@ body {
     display: none;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 30px;
   }
   
   .fim span {
     margin-bottom: 2rem;
     text-align: center;
     font-weight: 600;
-    color: white;
+    color:white;
+  }
+  button:hover {
+    background-color: #1bffff;
+    padding: 10px 20px;
+  }
+
+  button {
+    background-color: #ff1b7b;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    color: rgb(12, 12, 12);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
   }
